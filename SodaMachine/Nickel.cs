@@ -11,10 +11,10 @@ namespace SodaMachine
         //Member Variables (Has A)
 
         //Constructor (Spawner)
-        public Nickel(string Name)
+        public Nickel()
         {
-            this.Name = Name;
-            value = .10;
+            Name = "Nickel";
+            value = .05;
         }
         //Member Methods (Can Do)
     }

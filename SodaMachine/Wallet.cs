@@ -10,6 +10,7 @@ namespace SodaMachine
     {
         //Member Variables (Has A)
         public List<Coin> Coins;
+
         //Constructor (Spawner)
         public Wallet()
         {
@@ -17,28 +18,28 @@ namespace SodaMachine
           
             FillRegister();
         }
+
         //Member Methods (Can Do)
-        //Fills wallet with starting money
         private void FillRegister()
         {
             for (int i = 0; i < 10; i++)
             {
-                Coin quarter = new Coin();
+                Coin quarter = new Quarter();
                 Coins.Add(quarter);
             }
             for (int i = 0; i < 14; i++)
             {
-                Coin dime = new Coin();
+                Coin dime = new Dime();
                 Coins.Add(dime);
             }
             for (int i = 0; i < 18; i++)
             {
-                Coin nickel = new Coin();
+                Coin nickel = new Nickel();
                 Coins.Add(nickel);
             }
             for (int i = 0; i < 20; i++)
             {
-                Coin penny = new Coin();
+                Coin penny = new Penny();
                 Coins.Add(penny);
             }
         }

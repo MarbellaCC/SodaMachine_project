@@ -11,9 +11,9 @@ namespace SodaMachine
         //Member Variables (Has A)
 
         //Constructor (Spawner)
-        public Penny(string Name)
+        public Penny()
         {
-            this.Name = Name;
+            Name = "Penny";
             value = .01;
         }
         //Member Methods (Can Do)

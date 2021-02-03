@@ -20,35 +20,44 @@ namespace SodaMachine
         }
         //Member Methods (Can Do)
 
-        //This method will be the main logic for a customer to retrieve coins form their wallet.
-        //Takes in the selected can for price reference
-        //Will need to get user input for coins they would like to add.
-        //When all is said and done this method will return a list of coin objects that the customer will use a payment for their soda.
         public List<Coin> GatherCoinsFromWallet(Can selectedCan)
         {
+            List<Coin> gatheredCoins = new List<Coin>();
+            double gatheredCoinsValue = 0;
             
+            while (gatheredCoinsValue < selectedCan.Price)
+            {
+                string coinSelected = UserInterface.CoinSelection(selectedCan, Wallet.Coins);
+                Coin gatheredCoin = GetCoinFromWallet(coinSelected);
+                if (gatheredCoin == null)
+                {
+                    break;
+                }
+                gatheredCoins.Add(gatheredCoin);
+                gatheredCoinsValue += gatheredCoin.Value;
+            }
+            return gatheredCoins;
 
         }
-        //Returns a coin object from the wallet based on the name passed into it.
-        //Returns null if no coin can be found
+
         public Coin GetCoinFromWallet(string coinName)
         {
-            if (Wallet.Coins.Contains(coinName))
+            foreach(Coin coin in Wallet.Coins) 
             {
-                
-                return coin;
+                if (coin.Name.Equals(coinName)) 
+                {
+                    Wallet.Coins.Remove(coin);
+                    return coin;
+                }
             }
-            else
-            {
-                return null;
-            }
+            return null;
         }
-        //Takes in a list of coin objects to add into the customers wallet.
+ 
         public void AddCoinsIntoWallet(List<Coin> coinsToAdd)
         {
-            Wallet.Coins.Add(change);
+            Wallet.Coins.AddRange(coinsToAdd);
         }
-        //Takes in a can object to add to the customers backpack.
+
         public void AddCanToBackpack(Can purchasedCan)
         {
             Backpack.cans.Add(purchasedCan);

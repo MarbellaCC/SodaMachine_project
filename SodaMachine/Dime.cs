@@ -11,9 +11,9 @@ namespace SodaMachine
         //Member Variables (Has A)
 
         //Constructor (Spawner)
-        public Dime(string Name)
+        public Dime()
         {
-            this.Name = Name;
+            Name = "Dime";
             value = .10;
         }
 
